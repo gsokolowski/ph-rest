@@ -9,9 +9,9 @@ class Robots extends Model
 {
     public function validation()
     {
-        $validator = new Validation();
+        $validation = new Validation();
 
-        $validator->add(
+        $validation->add(
             'type', //your field name
             new InclusionIn([
                 "field"  => "type",
@@ -24,7 +24,7 @@ class Robots extends Model
         );
 
 
-        $validator->add(
+        $validation->add(
             'name',
             new Uniqueness([
                 "field"   => "name",
@@ -40,7 +40,7 @@ class Robots extends Model
         }
 
 
-        return $this->validate($validator);
+        return $this->validate($validation);
 
     }
 }
